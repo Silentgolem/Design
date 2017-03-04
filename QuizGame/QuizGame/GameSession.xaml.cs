@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace QuizGame
 {
@@ -21,6 +22,7 @@ namespace QuizGame
     {
         Question Question;
         Game Game;
+        int time;
         public GameSession()
         {
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -36,6 +38,11 @@ namespace QuizGame
             {
                 case "Challenge":
                     Game = new ChallengeGame(Main.User);
+                    DispatcherTimer timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromSeconds(1);
+                    timer.Tick += timer_Tick;
+                    time = 60;
+                    timer.Start();
                     break;
                 case "Endless":
                     Game = new EndlessGame(Main.User);
@@ -45,6 +52,16 @@ namespace QuizGame
                     break;
             }
             PlayRound();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            time--;
+            if (time>=0)
+            {
+                TimeSpan timer = TimeSpan.FromSeconds(time);
+                lblTime.Content = timer.ToString(@"mm\:ss"); 
+            }
         }
 
         private void PlayRound()
@@ -57,7 +74,14 @@ namespace QuizGame
         private void Answer(string answer)
         {
             Game.InterpretAnswer(Question,answer);
-            PlayRound();
+            if (time >= 0)
+            {
+                PlayRound();
+            }
+            else
+            {
+                EndGame();
+            }
         }
 
         private void DisplayQuestion(Question question)
@@ -78,6 +102,11 @@ namespace QuizGame
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            EndGame();
+        }
+
+        private void EndGame()
         {
             Game.EndGame();
             MessageBox.Show("Score saved");
