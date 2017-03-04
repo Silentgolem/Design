@@ -1,0 +1,23 @@
+﻿<Window x:Class="QuizGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizGame"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Name="lblWelcome" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+        <Button Name="btnChallenge" Content="Challenge" Grid.Row="1" Margin="15" Click="btnChallenge_Click"/>
+        <Button Name="btnEndless" Content="Endless" Grid.Row="2" Margin="15" Click="btnEndless_Click"/>
+        <Button Name="btnSession" Content="Session" Grid.Row="3" Margin="15" Click="btnSession_Click"/>
+        <Button Name="btnClose" Content="Exit" Grid.Row="4" MaxWidth="200" Margin="15" Click="btnClose_Click"/>
+    </Grid>
+</Window>
