@@ -12,11 +12,12 @@
             <RowDefinition Height="187*"/>
         </Grid.RowDefinitions>
         <Label Name="lblPoints" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Content="Score: 0"/>
-        <TextBlock Text=""  Name="lblQuestion" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Grid Grid.Row="1">
+        <TextBlock Text="" TextAlignment="Center" Width="200" TextWrapping="Wrap" Name="lblQuestion" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid Margin="0,54,0,0" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -26,6 +27,8 @@
             <Button Name="btnB" Margin="15" Grid.Row="0" Grid.Column="1" Click="btnAnswer_Click"/>
             <Button Name="btnC" Margin="15" Grid.Row="1" Grid.Column="0" Click="btnAnswer_Click"/>
             <Button Name="btnD" Margin="15" Grid.Row="1" Grid.Column="1" Click="btnAnswer_Click"/>
+            <Button Name="btnExit" Margin="5" Width="100" Grid.Row="2" Content="Exit" Grid.ColumnSpan="2" Click="btnExit_Click"/>
+
         </Grid>
     </Grid>
 </Window>

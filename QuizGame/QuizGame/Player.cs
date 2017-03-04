@@ -36,19 +36,14 @@ namespace QuizGame
             this.Name = Name;
             this.Points = Points;
         }
+
+        public override string ToString()
+        {
+            return Name + "," + Points;
+        }
         public void CheckNames()
         {
-            List<Player> Players = new List<Player>();
-            string filePath = "users.txt";
-            string[] details = new string[File.ReadAllLines(filePath).Count()];
-
-            details = File.ReadAllLines(filePath);
-            foreach (string line in details)
-            {
-                string[] playerDetails = line.Split(',');
-                Player newP = new Player(playerDetails[0], Int32.Parse(playerDetails[1]));
-                Players.Add(newP);
-            }
+            List<Player> Players=GetList("users.txt");
             foreach (Player p in Players)
             {
                 if (this.Name==p.Name)
@@ -62,6 +57,51 @@ namespace QuizGame
                 }
             }
 
+        }
+
+        private List<Player> GetList(string filePath)
+        {
+            List<Player> Players = new List<Player>();
+            if (File.Exists(filePath))
+            {
+                string[] details = new string[File.ReadAllLines(filePath).Count()];
+
+                details = File.ReadAllLines(filePath);
+                foreach (string line in details)
+                {
+                    string[] playerDetails = line.Split(',');
+                    Player newP = new Player(playerDetails[0], Int32.Parse(playerDetails[1]));
+                    Players.Add(newP);
+                } 
+            }
+            return Players;
+        }
+
+        public void UpdateUsers(string file)
+        {
+            List<Player> Players = GetList(file);
+            if (file == "users.txt")
+            {
+                foreach (Player p in Players)
+                {
+                    if (p.Name == this.Name)
+                    {
+                        Players.Remove(p);
+                        break;
+                    }
+                } 
+            }
+            Players.Add(this);
+
+            Players=Players.OrderBy(o => o.Points).ToList();
+            Players.Reverse();
+
+            string[] details = new string[Players.Count];
+            for (int i = 0; i < Players.Count; i++)
+            {
+                details[i] = Players[i].ToString();
+            }
+            File.WriteAllLines(file, details);
         }
     }
 }

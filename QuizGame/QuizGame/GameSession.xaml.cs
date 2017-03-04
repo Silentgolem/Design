@@ -76,5 +76,12 @@ namespace QuizGame
             string answer=temp[temp.Length-1].ToString();
             Answer(answer);
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Game.EndGame();
+            MessageBox.Show("Score saved");
+            this.Close();
+        }
     }
 }

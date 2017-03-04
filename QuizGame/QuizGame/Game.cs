@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace QuizGame
-{//test
+{
     abstract class Game
     {
         protected Player User { get; set; }
@@ -47,12 +47,19 @@ namespace QuizGame
         public abstract void InterpretAnswer(Question question, string answer);
 
         public abstract string ShowPoints();
+
+        public abstract void EndGame();
     }
      class ChallengeGame : Game
     {
         public ChallengeGame(Player User) : base(User)
         {
             User.Points = 0;
+        }
+
+        public override void EndGame()
+        {
+            User.UpdateUsers("ChallengeHighScores.txt");
         }
 
         public override void InterpretAnswer(Question question, string answer)
@@ -74,6 +81,11 @@ namespace QuizGame
         {
             User.CheckNames();
         }
+
+        public override void EndGame()
+        {
+            User.UpdateUsers("users.txt");
+        }
         public override void InterpretAnswer(Question question, string answer)
         {
             if (question.CorrectAnswer == answer)
@@ -90,23 +102,28 @@ namespace QuizGame
     class SessionGame : Game
     {
         double PercentCorrect { get; set; }
+        int QuestionsCorrect { get; set; }
         public SessionGame(Player User) : base(User)
         {
             PercentCorrect = 0;
-            User.Points = 0;
+            QuestionsCorrect = 0;
+        }
+        public override void EndGame()
+        {
+            User.UpdateUsers("SessionHighScores.txt");
         }
         public override void InterpretAnswer(Question question, string answer)
         {
             if (question.CorrectAnswer == answer)
             {
-                User.Points++;
+                QuestionsCorrect++;
             }
-            PercentCorrect = (double)User.Points / QuestionsAsked * 100;
+            PercentCorrect = (double)QuestionsCorrect / QuestionsAsked * 100;
         }
         public override string ShowPoints()
         {
-            int temp = Convert.ToInt32(PercentCorrect);
-            return temp +"%";
+            User.Points = Convert.ToInt32(PercentCorrect);
+            return User.Points + "%";
         }
     }
 }
