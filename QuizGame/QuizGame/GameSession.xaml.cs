@@ -42,6 +42,8 @@ namespace QuizGame
                     timer.Interval = TimeSpan.FromSeconds(1);
                     timer.Tick += timer_Tick;
                     time = 60;
+                    TimeSpan timerlbl = TimeSpan.FromSeconds(time);
+                    lblTime.Content = timerlbl.ToString(@"mm\:ss");
                     timer.Start();
                     break;
                 case "Endless":
