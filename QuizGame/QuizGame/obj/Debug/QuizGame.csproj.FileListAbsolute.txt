@@ -16,3 +16,6 @@ C:\Users\liaml\Documents\Visual Studio 2015\Projects\C#\QuizGame\QuizGame\obj\De
 C:\Users\liaml\Documents\Visual Studio 2015\Projects\C#\QuizGame\QuizGame\obj\Debug\QuizGame.csproj.GenerateResource.Cache
 C:\Users\liaml\Documents\Visual Studio 2015\Projects\C#\QuizGame\QuizGame\obj\Debug\QuizGame.exe
 C:\Users\liaml\Documents\Visual Studio 2015\Projects\C#\QuizGame\QuizGame\obj\Debug\QuizGame.pdb
+C:\Users\liaml\Documents\GitHub\Design\QuizGame\QuizGame\bin\Debug\QuizGame.exe.config
+C:\Users\liaml\Documents\GitHub\Design\QuizGame\QuizGame\obj\Debug\QuizGame.exe
+C:\Users\liaml\Documents\GitHub\Design\QuizGame\QuizGame\obj\Debug\QuizGame.pdb
