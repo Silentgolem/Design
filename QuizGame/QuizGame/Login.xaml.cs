@@ -29,7 +29,7 @@ namespace QuizGame
         {
             MainWindow main = this.Owner as MainWindow;
             main.User = new Player(txtbxName.Text);
-            main.lblWelcome.Content = "Welcome " + main.User.Name;
+            main.lblWelcome.Content = "Welcome " + main.User.Name + "!";
             this.Close();
         }
     }
