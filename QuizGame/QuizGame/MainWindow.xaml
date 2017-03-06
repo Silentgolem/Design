@@ -5,7 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+        Title="Choose a gamemode!" Height="600" Width="800" Loaded="Window_Loaded" Background="{DynamicResource WindowBrush}">
+    <Window.Resources>
+        <Style x:Key="headingStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="37"></Setter>
+            <Setter Property="FontWeight" Value="Light"></Setter>
+        </Style>
+        <Style x:Key="mainButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="300"></Setter>
+            <Setter Property="MaxHeight" Value="60"></Setter>
+            <Setter Property="Background" Value="#ecf0f1"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="FontSize" Value="23"></Setter>
+            <Setter Property="Margin" Value="15"></Setter>
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="Black" Direction="260" ShadowDepth="10" Softness="4" Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="exitButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Background" Value="#757575"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Content" Value="Exit Game"></Setter>
+            <Setter Property="Margin" Value="15"></Setter>
+            <Setter Property="FontSize" Value="23"></Setter>
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <DropShadowBitmapEffect Color="Black" Direction="260" ShadowDepth="10" Softness="4" Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="WindowBrush" Color="#3498db"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,10 +48,10 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Name="lblWelcome" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-        <Button Name="btnChallenge" Content="Challenge" Grid.Row="1" Margin="15" Click="btnChallenge_Click"/>
-        <Button Name="btnEndless" Content="Endless" Grid.Row="2" Margin="15" Click="btnEndless_Click"/>
-        <Button Name="btnSession" Content="Session" Grid.Row="3" Margin="15" Click="btnSession_Click"/>
-        <Button Name="btnClose" Content="Exit" Grid.Row="4" MaxWidth="200" Margin="15" Click="btnClose_Click"/>
+        <Label Name="lblWelcome" Style="{StaticResource headingStyle}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+        <Button Name="btnChallenge" Style="{StaticResource mainButtonStyle}" Content="Challenge" Grid.Row="1" Click="btnChallenge_Click"/>
+        <Button Name="btnEndless" Style="{StaticResource mainButtonStyle}" Content="Endless" Grid.Row="2" Click="btnEndless_Click"/>
+        <Button Name="btnSession" Style="{StaticResource mainButtonStyle}" Content="Session" Grid.Row="3"  Click="btnSession_Click"/>
+        <Button Name="btnClose" Style="{StaticResource exitButtonStyle}" Grid.Row="4" Click="btnClose_Click"/>
     </Grid>
 </Window>

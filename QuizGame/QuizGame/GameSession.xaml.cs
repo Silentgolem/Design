@@ -64,6 +64,12 @@ namespace QuizGame
                 TimeSpan timer = TimeSpan.FromSeconds(time);
                 lblTime.Content = timer.ToString(@"mm\:ss"); 
             }
+            else
+            {
+                var bc = new BrushConverter();
+
+                lblTime.Foreground = (Brush)bc.ConvertFrom("#D50000");
+            }
         }
 
         private void PlayRound()

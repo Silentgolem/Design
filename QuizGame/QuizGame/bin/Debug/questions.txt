@@ -34,7 +34,7 @@ When was Margaret Thatcher first elected Prime Minister of the United Kingdom?,1
 Astigmatism is a condition affecting which part of the body?,The Eye,The Liver,The Skin,The Toes,A
 What is the easternmost country in the European Union?,Lithuania,Turkey,Cyprus,Belarus,C
 What is the capital of The Bahamas?,Nassau,Yorktown,Freeport,La Paz,A
-If it is 12 midday in Dublin, what time is it in Tokyo?,7,8,9,10,B
+If it is 12 midday in Dublin what time is it in Tokyo?,7,8,9,10,B
 What was the first country to win the World Cup twice?,France,England,Italy,Brazil,C
 How many sides has a heptagon?,4,5,6,7,D
 Which philosopher said "I think therefore I am"?,Rene Descartes,Francis Bacon,Immanuel Kant,Friedrich Nietzsche,A
