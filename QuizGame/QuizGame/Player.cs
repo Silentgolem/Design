@@ -25,7 +25,7 @@ namespace QuizGame
             }
             else
             {
-                this.Name = "Nameless Fuckwit";
+                this.Name = "Witless Fool";
             }
 
             CheckNames();
