@@ -1,5 +1,6 @@
 Liam,1850
-Witless Fool,1100
+no,1350
 Ciara,1100
+Witless Fool,1100
 no name,1000
 Nameless Fuckwit,400
