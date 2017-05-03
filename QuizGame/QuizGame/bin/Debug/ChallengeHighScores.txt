@@ -6,9 +6,10 @@ Nameless Fuckwit,11
 Nameless Fuckwit,8
 Ciara,6
 Nameless Fuckwit,5
-Liam,3
 Witless Fool,3
+Liam,3
 Witless Fool,2
 Ciara,1
+Ciara,0
 Ciara,0
 Ciara,0
